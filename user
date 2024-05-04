@@ -272,6 +272,17 @@
       "peer_public_key": "Cn4siWGToCqJJ0q6OXGb4+LyaUF+vES2Xd40e9sj/BI="
     },
     {
+      "type": "wireguard",
+      "tag": "us42-out",
+      "server": "37.19.221.194",
+      "server_port": 51820,
+      "local_address": [
+        "10.2.0.2/32"
+        ],
+      "private_key": "KINvhkMHypIC694EKgzR1Y8iAvg7+EXUPKFyL7qTR28=",
+      "peer_public_key": "lCe5Yp9TfM61w72G8bmtZJ0/LtpFtk6PrughQEHQiXs="
+    },
+    {
       "type": "socks",
       "tag": "us17-out",
       "server": "192.168.0.104",
