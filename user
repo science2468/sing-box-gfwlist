@@ -59,8 +59,8 @@
   ],
   "outbounds": [
     {
-      "type": "urltest",
-      "tag": "auto",
+      "type": "selector",
+      "tag": "select",
       "outbounds": [
         "trojan-out",
         "warp-out",
@@ -68,12 +68,7 @@
         "us19-out",
         "us62-out",
         "us17-out"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "30m",
-      "tolerance": 50,
-      "idle_timeout": "30m",
-      "interrupt_exist_connections": false
+      ]
     },
     {
       "type": "trojan",
@@ -176,7 +171,7 @@
       },
       {
         "inbound": "socks-in",
-        "outbound":"auto"
+        "outbound":"select"
       },
       {
         "rule_set": "geoip-cn",
@@ -203,7 +198,7 @@
         "download_detour": "auto"
       }
     ],
-    "final": "auto",
+    "final": "select",
     "auto_detect_interface": true
   }
 }
