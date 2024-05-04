@@ -6,7 +6,7 @@
         "address": "https://1.1.1.1/dns-query",
         "address_resolver": "dns_resolver",
         "strategy": "ipv4_only",
-        "detour": "us17-out"
+        "detour": "select"
       },
       {
         "tag": "dns_direct",
@@ -15,6 +15,7 @@
         "strategy": "ipv4_only",
         "detour": "direct"
       },
+      
       {
         "tag": "dns_block",
         "address": "rcode://refused"
