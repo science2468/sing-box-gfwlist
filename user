@@ -32,59 +32,7 @@
         "server": "dns_resolver"
       },
       {
-        "clash_mode": "direct",
-        "server": "dns_direct"
-      },
-      {
-        "clash_mode": "global",
-        "server": "dns_proxy"
-      },
-      {
-        "process_name": [
-          "TencentMeeting",
-          "NemoDesktop",
-          "ToDesk",
-          "ToDesk_Service",
-          "WeChat",
-          "Tailscale",
-          "wireguard-go",
-          "Tunnelblick",
-          "softwareupdated",
-          "kubectl"
-        ],
-        "server": "dns_direct"
-      },
-      {
-        "domain_suffix": [
-          "icloudnative.io",
-          "fuckcloudnative.io",
-          "sealos.io",
-          "cdn.jsdelivr.net"
-        ],
-        "server": "dns_direct"
-      },
-      {
-        "process_name": [
-          "DropboxMacUpdate",
-          "Dropbox"
-        ],
-        "server": "dns_proxy"
-      },
-      {
-        "package_name": [
-          "com.google.android.youtube",
-          "com.android.vending",
-          "org.telegram.messenger",
-          "org.telegram.plus"
-        ],
-        "server": "dns_proxy"
-      },
-      {
         "rule_set": "geosite-geolocation-!cn",
-        "server": "dns_proxy"
-      },
-      {
-        "rule_set": "Global",
         "server": "dns_proxy"
       },
       {
@@ -112,69 +60,8 @@
   "inbounds": [
     {
       "type": "tun",
-      "inet4_address": "198.18.0.1/16",
-      "auto_route": true,
-      "exclude_package": [
-        "cmb.pb",
-        "cn.gov.pbc.dcep",
-        "com.MobileTicket",
-        "com.adguard.android",
-        "com.ainemo.dragoon",
-        "com.alibaba.android.rimet",
-        "com.alicloud.databox",
-        "com.amazing.cloudisk.tv",
-        "com.autonavi.minimap",
-        "com.bilibili.app.in",
-        "com.bishua666.luxxx1",
-        "com.cainiao.wireless",
-        "com.chebada",
-        "com.chinamworld.main",
-        "com.cmbchina.ccd.pluto.cmbActivity",
-        "com.coolapk.market",
-        "com.ctrip.ct",
-        "com.dianping.v1",
-        "com.douban.frodo",
-        "com.eg.android.AlipayGphone",
-        "com.farplace.qingzhuo",
-        "com.hanweb.android.zhejiang.activity",
-        "com.leoao.fitness",
-        "com.lucinhu.bili_you",
-        "com.mikrotik.android.tikapp",
-        "com.moji.mjweather",
-        "com.motorola.cn.calendar",
-        "com.motorola.cn.lrhealth",
-        "com.netease.cloudmusic",
-        "com.sankuai.meituan",
-        "com.sina.weibo",
-        "com.smartisan.notes",
-        "com.sohu.inputmethod.sogou.moto",
-        "com.sonelli.juicessh",
-        "com.ss.android.article.news",
-        "com.ss.android.lark",
-        "com.ss.android.ugc.aweme",
-        "com.tailscale.ipn",
-        "com.taobao.idlefish",
-        "com.taobao.taobao",
-        "com.tencent.mm",
-        "com.tencent.mp",
-        "com.tencent.soter.soterserver",
-        "com.tencent.wemeet.app",
-        "com.tencent.weread",
-        "com.tencent.wework",
-        "com.ttxapps.wifiadb",
-        "com.unionpay",
-        "com.unnoo.quan",
-        "com.wireguard.android",
-        "com.xingin.xhs",
-        "com.xunmeng.pinduoduo",
-        "com.zui.zhealthy",
-        "ctrip.android.view",
-        "io.kubenav.kubenav",
-        "org.geekbang.geekTime",
-        "tv.danmaku.bili"
-      ],
-      "stack": "mixed",
-      "sniff": true
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true
     },
     {
       "type": "socks",
@@ -184,35 +71,6 @@
     }
   ],
   "outbounds": [
-    {
-      "type": "selector",
-      "tag": "select",
-      "outbounds": [
-        "warp-out",
-        "us42-out",
-        "trojan-out",
-        "us19-out",
-        "us62-out",
-        "us17-out"
-      ],
-      "default": "us17-out"
-    },
-    {
-      "type": "selector",
-      "tag": "openai",
-      "outbounds": [
-        "us17-out"
-      ],
-      "default": "us17-out"
-    },
-    {
-      "type": "selector",
-      "tag": "tiktok",
-      "outbounds": [
-        "us17-out"
-      ],
-      "default": "us17-out"
-    },
     {
       "type": "trojan",
       "tag": "trojan-out",
@@ -251,14 +109,14 @@
     },
     {
       "type": "wireguard",
-      "tag": "us62-out",
-      "server": "87.249.134.133",
+      "tag": "us42-out",
+      "server": "37.19.221.194",
       "server_port": 51820,
       "local_address": [
         "10.2.0.2/32"
         ],
-      "private_key": "iEpm2VeaJSr7EoQI9vKOO1GS1Ea/aa7xq3WFw6c4OnI=",
-      "peer_public_key": "3R9vndAPHcVhtB+nshj2FQMNE2+/6LYcWm9NhRC/wjc="
+      "private_key": "KINvhkMHypIC694EKgzR1Y8iAvg7+EXUPKFyL7qTR28=",
+      "peer_public_key": "lCe5Yp9TfM61w72G8bmtZJ0/LtpFtk6PrughQEHQiXs="
     },
     {
       "type": "wireguard",
@@ -268,19 +126,19 @@
       "local_address": [
         "10.2.0.2/32"
         ],
-      "private_key": "EGz9oPRLHYdaq0WzEQEwrketVlM4RbJAhZN4Vyr/yV8=",
+      "private_key": "eOpm9Co3XOzhJH90w3KtOXGYrUHNhjuSkSlF61WVfmA=",
       "peer_public_key": "Cn4siWGToCqJJ0q6OXGb4+LyaUF+vES2Xd40e9sj/BI="
     },
     {
       "type": "wireguard",
-      "tag": "us42-out",
-      "server": "37.19.221.194",
+      "tag": "us62-out",
+      "server": "87.249.134.133",
       "server_port": 51820,
       "local_address": [
         "10.2.0.2/32"
         ],
-      "private_key": "KINvhkMHypIC694EKgzR1Y8iAvg7+EXUPKFyL7qTR28=",
-      "peer_public_key": "lCe5Yp9TfM61w72G8bmtZJ0/LtpFtk6PrughQEHQiXs="
+      "private_key": "IP7CpHTd1B7NFVxPn1wF7/wMmJEsMOLDc2z8UabRwmQ=",
+      "peer_public_key": "3R9vndAPHcVhtB+nshj2FQMNE2+/6LYcWm9NhRC/wjc="
     },
     {
       "type": "socks",
@@ -309,142 +167,16 @@
         "outbound": "dns-out"
       },
       {
-        "clash_mode": "direct",
-        "outbound": "direct"
-      },
-      {
-        "clash_mode": "global",
-        "outbound": "select"
-      },
-      {
-        "domain_suffix": [
-          "icloudnative.io",
-          "fuckcloudnative.io",
-          "sealos.io",
-          "cdn.jsdelivr.net"
-        ],
-        "outbound": "direct"
-      },
-      {
-        "process_name": [
-          "TencentMeeting",
-          "NemoDesktop",
-          "ToDesk",
-          "ToDesk_Service",
-          "WeChat",
-          "OpenLens",
-          "Tailscale",
-          "wireguard-go",
-          "Tunnelblick",
-          "softwareupdated",
-          "kubectl"
-        ],
-        "outbound": "direct"
-      },
-      {
         "protocol": "quic",
         "outbound": "block"
       },
       {
         "inbound": "socks-in",
-        "outbound": "select"
+        "outbound":"us17-out"
       },
       {
-        "rule_set": [
-          "WeChat",
-          "Bilibili"
-        ],
-        "outbound": "direct"
-      },
-      {
-        "rule_set": "OpenAI",
-        "outbound": "openai"
-      },
-      {
-        "domain_suffix": [
-          "openai.com",
-          "oaistatic.com",
-          "oaiusercontent.com"
-        ],
-        "outbound": "openai"
-      },
-      {
-        "package_name": "com.openai.chatgpt",
-        "outbound": "openai"
-      },
-      {
-        "rule_set": "TikTok",
-        "outbound": "tiktok"
-      },
-      {
-        "package_name": "com.zhiliaoapp.musically",
-        "outbound": "tiktok"
-      },
-      {
-        "domain_suffix": [
-          "depay.one",
-          "orbstack.dev"
-        ],
-        "outbound": "select"
-      },
-      {
-        "process_name": [
-          "DropboxMacUpdate",
-          "Dropbox"
-        ],
-        "outbound": "select"
-      },
-      {
-        "package_name": [
-          "com.google.android.youtube",
-          "com.android.vending",
-          "org.telegram.messenger",
-          "org.telegram.plus",
-          "com.google.android.googlequicksearchbox",
-          "app.rvx.android.youtube",
-          "com.mudvod.video",
-          "com.fox2code.mmm",
-          "com.twitter.android"
-        ],
-        "outbound": "select"
-      },
-      {
-        "domain": "accounts.google.com",
-        "domain_suffix": [
-          "sourceforge.net",
-          "fhjasokiwq.com"
-        ],
-        "outbound": "select"
-      },
-      {
-        "domain_suffix": "cloud.sealos.io",
-        "outbound": "direct"
-      },
-      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "rule_set": "geosite-geolocation-!cn"
-          },
-          {
-            "rule_set": "geoip-cn",
-            "invert": true
-          }
-        ],
-        "outbound": "select"
-      },
-      {
-        "rule_set": "Global",
-        "outbound": "select"
-      },
-      {
-        "rule_set": "geoip-cn",
-        "outbound": "direct"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
+        "rule_set": "geosite-geolocation-!cn",
+        "outbound": "us17-out"
       },
       {
         "rule_set": [
@@ -456,7 +188,7 @@
           "geoip-twitter",
           "geoip-netflix"
         ],
-        "outbound": "select"
+        "outbound": "us17-out"
       }
     ],
     "rule_set": [
@@ -562,17 +294,5 @@
     "final": "direct",
     "find_process": true,
     "auto_detect_interface": true
-  },
-  "experimental": {
-    "cache_file": {
-      "enabled": true
-    },
-    "clash_api": {
-      "external_controller": "0.0.0.0:9090",
-      "external_ui": "metacubexd",
-      "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-      "external_ui_download_detour": "select",
-      "default_mode": "rule"
-    }
   }
 }
