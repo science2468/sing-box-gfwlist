@@ -35,45 +35,32 @@
     ],
     "rules": [
       {
-        "geoip": [
-          "private",
-          "cn"
-        ],
-        "geosite": [
-           "cn"
-        ],
-        "outbound": "direct",
-        "server": "dns_driect"
+          "outbound": "any",
+          "server": "dns_resolver"
+      },
+      {
+          "rule_set": "geosite-geolocation-!cn",
+          "server": "dns_proxy"
+      },
+      {
+          "rule_set": "geosite-cn",
+          "server": "dns_direct"
       }
     ],
     "final": "dns_proxy"
   },
-  "ntp": {
-    "enabled": true,
-    "server": "time.asia.apple.com",
-    "server_port": 123,
-    "interval": "30m",
-    "detour": "direct"
-  },
   "inbounds": [
     {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "singtun0",
-      "inet4_address": "172.19.0.1/30",
-      "mtu": 9000,
-      "auto_route": true,
-      "strict_route": true,
-      "stack": "mixed",
-      "sniff": true,
-      "sniff_override_destination": true
-    },
-    {
-      "type": "mixed",
-      "tag": "mixed-in",
-      "listen": "::",
-      "sniff": true,
-      "sniff_override_destination": true
+        "type": "tun",
+        "tag": "tun-in",
+        "inet4_address": "172.16.0.1/30",
+        "inet6_address": "fd00::1/126",
+        "mtu": 1400,
+        "auto_route": true,
+        "strict_route": true,
+        "stack": "mixed",
+        "sniff": true,
+        "sniff_override_destination": false
     }
   ],
   "outbounds": [
@@ -189,38 +176,69 @@
         "outbound": "block"
       },
       {
-        "inbound": "mixed-in",
-        "outbound":"select"
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+            {
+                "rule_set": "geoip-cn",
+                "invert": true
+            },
+            {
+                "rule_set": "geosite-geolocation-!cn"
+            }
+        ],
+        "outbound": "select"
       },
       {
-        "geoip": "private",
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+            {
+                "rule_set": "geoip-cn"
+            },
+            {
+                "rule_set": "geosite-cn"
+            }
+        ],
         "outbound": "direct"
       },
       {
-        "geoip": "cn",
+        "rule_set": "geoip-cn",
         "outbound": "direct"
       },
       {
-        "source_geoip": "cn",
-        "outbound": "block"
-      },
-      {
-        "geosite": "cn",
+        "ip_is_private": true,
         "outbound": "direct"
       }
     ],
-    "geoip": {
-      "download_url": "https://mirror.ghproxy.com/https://github.com/SagerNet/sing-geoip/releases/latest/download/geoip.db",
-      "download_detour": "select"
-    },
-    "geosite": {
-      "download_url": "https://mirror.ghproxy.com/https://github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db",
-      "download_detour": "select"
-    },
+    "rule_set": [
+      {
+          "tag": "geosite-geolocation-!cn",
+          "type": "remote",
+          "format": "binary",
+          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
+          "download_detour": "select"
+      },
+      {
+          "tag": "geoip-cn",
+          "type": "remote",
+          "format": "binary",
+          "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
+          "download_detour": "select"
+      },
+      {
+          "tag": "geosite-cn",
+          "type": "remote",
+          "format": "binary",
+          "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
+          "download_detour": "select"
+      }
+    ],
     "final": "select",
     "auto_detect_interface": true
   },
   "experimental": {
+    "enabled": true,
     "cache_file": "cache.db"
   }
 }
