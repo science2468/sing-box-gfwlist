@@ -190,21 +190,28 @@
     ],
     "rule_set": [
       {
-        "tag": "geoip-cn",
         "type": "remote",
+        "tag": "geoip-cn",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-        "download_detour": "select"
+        "url": "https://github.com/1715173329/sing-geoip/blob/rule-set/geoip-cn.srs",
+        "download_detour": "select",
+        "update_interval": "1d"
       },
       {
-        "tag": "geosite-cn",
         "type": "remote",
+        "tag": "geosite-cn",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
-        "download_detour": "select"
+        "url": "https://github.com/1715173329/sing-geosite/blob/rule-set/geosite-cn.srs",
+        "download_detour": "select",
+        "update_interval": "1d"
       }
     ],
     "final": "select",
     "auto_detect_interface": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true
+    }
   }
 }
