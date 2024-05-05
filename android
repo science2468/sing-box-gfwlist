@@ -56,8 +56,8 @@
       "sniff_override_destination": false
     },
     {
-      "type": "mixed",
-      "tag": "mixed-in",
+      "type": "socks",
+      "tag": "socks-in",
       "sniff": true,
       "sniff_override_destination": true
     }
@@ -150,7 +150,7 @@
         "outbound": "block"
       },
       {
-        "inbound": "mixed-in",
+        "inbound": "socks-in",
         "outbound":"select"
       },
       {
