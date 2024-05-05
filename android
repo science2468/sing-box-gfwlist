@@ -238,7 +238,9 @@
     "auto_detect_interface": true
   },
   "experimental": {
-    "enabled": true,
-    "cache_file": "cache.db"
+    "cache_file": {
+      "enabled": true,
+      "patch": "cache.db"
+    }
   }
 }
