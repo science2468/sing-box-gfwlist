@@ -210,9 +210,11 @@
       }
     ],
     "geoip": {
+      "download_url": "https://mirror.ghproxy.com/https://github.com/SagerNet/sing-geoip/releases/latest/download/geoip.db",
       "download_detour": "select"
     },
     "geosite": {
+      "download_url": "https://mirror.ghproxy.com/https://github.com/SagerNet/sing-geosite/releases/latest/download/geosite.db",
       "download_detour": "select"
     },
     "final": "select",
