@@ -201,7 +201,7 @@
         "type": "remote",
         "tag": "geoip-cn",
         "format": "binary",
-        "url": "https://github.com/1715173329/sing-geoip/blob/rule-set/geoip-cn.srs",
+        "url": "https://mirror.ghproxy.com/https://github.com/1715173329/sing-geoip/blob/rule-set/geoip-cn.srs",
         "download_detour": "select",
         "update_interval": "1d"
       },
@@ -209,7 +209,7 @@
         "type": "remote",
         "tag": "geosite-cn",
         "format": "binary",
-        "url": "https://github.com/1715173329/sing-geosite/blob/rule-set/geosite-cn.srs",
+        "url": "https://mirror.ghproxy.com/https://github.com/1715173329/sing-geosite/blob/rule-set/geosite-cn.srs",
         "download_detour": "select",
         "update_interval": "1d"
       }
