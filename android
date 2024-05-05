@@ -240,7 +240,7 @@
   "experimental": {
     "cache_file": {
       "enabled": true,
-      "patch": "cache.db"
+      "path": "cache.db"
     }
   }
 }
