@@ -34,13 +34,22 @@
       }
     ],
     "rules": [
-      {
-        "rule_set": [
-          "geosite-cn",
-          "geoip-cn"
-        ],
-        "server": "dns_direct"
-      }
+        {
+            "geoip": "private",
+            "outbound": "direct"
+        },
+        {
+            "geoip": "cn",
+            "outbound": "direct"
+        },
+        {
+            "source_geoip": "cn",
+            "outbound": "block"
+        },
+        {
+            "geosite": "cn",
+            "outbound": "direct"
+        }
     ],
     "final": "dns_proxy"
   },
@@ -210,13 +219,11 @@
     },
     "geosite": {
       "download_detour": "select"
-    }
+    },
     "final": "select",
     "auto_detect_interface": true
   },
   "experimental": {
-    "cache_file": {
-      "enabled": true
-    }
+    "cache_file": "cache.db"
   }
 }
