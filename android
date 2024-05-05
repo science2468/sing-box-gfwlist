@@ -1,10 +1,4 @@
 {
-  "log": {
-    "disabled": false,
-    "level": "info",
-    "output": "box.log",
-    "timestamp": true
-  },
   "dns": {
     "servers": [
       {
@@ -51,16 +45,21 @@
   },
   "inbounds": [
     {
-        "type": "tun",
-        "tag": "tun-in",
-        "inet4_address": "172.16.0.1/30",
-        "inet6_address": "fd00::1/126",
-        "mtu": 1400,
-        "auto_route": true,
-        "strict_route": true,
-        "stack": "mixed",
-        "sniff": true,
-        "sniff_override_destination": false
+      "type": "tun",
+      "tag": "tun-in",
+      "inet4_address": "172.16.0.1/30",
+      "mtu": 1400,
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "system",
+      "sniff": true,
+      "sniff_override_destination": false
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "sniff": true,
+      "sniff_override_destination": true
     }
   ],
   "outbounds": [
@@ -149,6 +148,10 @@
       {
         "protocol": "quic",
         "outbound": "block"
+      },
+      {
+        "inbound": "mixed-in",
+        "outbound":"select"
       },
       {
         "type": "logical",
