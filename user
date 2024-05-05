@@ -48,7 +48,7 @@
     "enabled": true,
     "server": "time.asia.apple.com",
     "server_port": 123,
-    "interval": "30m0s",
+    "interval": "30m",
     "detour": "direct"
   },
   "inbounds": [
@@ -185,7 +185,7 @@
         "outbound": "block"
       },
       {
-        "inbound": "socks-in",
+        "inbound": "mixed-in",
         "outbound":"select"
       },
       {	
