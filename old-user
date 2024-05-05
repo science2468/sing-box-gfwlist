@@ -35,20 +35,15 @@
     ],
     "rules": [
       {
-          "geoip": "private",
-          "outbound": "direct"
-       },
-      {
-          "geoip": "cn",
-          "outbound": "direct"
-      },
-      {
-           "source_geoip": "cn",
-           "outbound": "block"
-      },
-      {
-          "geosite": "cn",
-           "outbound": "direct"
+        "geoip": [
+          "private",
+          "cn"
+        ],
+        "geosite": [
+           "cn"
+        ],
+        "outbound": "direct",
+        "server": "dns_driect"
       }
     ],
     "final": "dns_proxy"
