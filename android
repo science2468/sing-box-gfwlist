@@ -116,15 +116,8 @@
       "local_address": [
         "10.2.0.2/32"
         ],
-      "private_key": "IP7CpHTd1B7NFVxPn1wF7/wMmJEsMOLDc2z8UabRwmQ=",
+      "private_key": "iEpm2VeaJSr7EoQI9vKOO1GS1Ea/aa7xq3WFw6c4OnI=",
       "peer_public_key": "3R9vndAPHcVhtB+nshj2FQMNE2+/6LYcWm9NhRC/wjc="
-    },
-    {
-      "type": "socks",
-      "tag": "us17-out",
-      "server": "192.168.0.104",
-      "server_port": 1080,
-      "version": "5"
     },
     {
       "type": "direct",
