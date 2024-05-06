@@ -99,17 +99,6 @@
     },
     {
       "type": "wireguard",
-      "tag": "us19-out",
-      "server": "37.19.199.129",
-      "server_port": 51820,
-      "local_address": [
-        "10.2.0.2/32"
-        ],
-      "private_key": "eOpm9Co3XOzhJH90w3KtOXGYrUHNhjuSkSlF61WVfmA=",
-      "peer_public_key": "Cn4siWGToCqJJ0q6OXGb4+LyaUF+vES2Xd40e9sj/BI="
-    },
-    {
-      "type": "wireguard",
       "tag": "us62-out",
       "server": "87.249.134.133",
       "server_port": 51820,
