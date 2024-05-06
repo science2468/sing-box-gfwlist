@@ -53,7 +53,7 @@
       "strict_route": true,
       "stack": "system",
       "sniff": true,
-      "sniff_override_destination": false
+      "sniff_override_destination": true
     },
     {
       "type": "socks",
@@ -69,9 +69,7 @@
       "outbounds": [
         "warp-out",
         "us42-out",
-        "us19-out",
-        "us62-out",
-        "us17-out"
+        "us62-out"
       ]
     },
     {
