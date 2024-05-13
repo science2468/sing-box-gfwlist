@@ -1,4 +1,8 @@
 {
+  "log": {
+    "output": "box.log",
+    "timestamp": true
+  },
   "dns": {
     "servers": [
       {
@@ -10,12 +14,11 @@
       },
       {
         "tag": "dns_direct",
-        "address": "h3://dns.alidns.com/dns-query",
+        "address": "https://dns.alidns.com/dns-query",
         "address_resolver": "dns_resolver",
         "strategy": "ipv4_only",
         "detour": "direct"
       },
-      
       {
         "tag": "dns_block",
         "address": "rcode://refused"
@@ -29,37 +32,39 @@
     ],
     "rules": [
       {
-          "outbound": "any",
-          "server": "dns_resolver"
+        "outbound": "any",
+        "server": "dns_resolver"
       },
       {
-          "rule_set": "geosite-geolocation-!cn",
-          "server": "dns_proxy"
-      },
-      {
-          "rule_set": "geosite-cn",
-          "server": "dns_direct"
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "rule_set": "geoip-cn",
+            "invert": true
+          },
+          {
+            "rule_set": "geosite-geolocation-!cn"
+          }
+        ],
+        "server": "dns_proxy"
       }
     ],
-    "final": "dns_proxy"
+    "final": "dns_direct"
   },
   "inbounds": [
     {
       "type": "tun",
       "tag": "tun-in",
-      "inet4_address": "172.16.0.1/30",
+      "inet4_address": "172.19.0.1/30",
       "mtu": 1400,
+      "gso": false,
       "auto_route": true,
       "strict_route": true,
       "stack": "system",
       "sniff": true,
-      "sniff_override_destination": true
-    },
-    {
-      "type": "socks",
-      "tag": "socks-in",
-      "sniff": true,
-      "sniff_override_destination": true
+      "sniff_override_destination": false,
+      "domain_strategy": "prefer_ipv4"
     }
   ],
   "outbounds": [
@@ -68,10 +73,12 @@
       "tag": "select",
       "outbounds": [
         "warp-out",
-        "us42-out",
         "nl43-out",
-        "us62-out"
-      ]
+        "us43-science",
+        "note7-out"
+      ],
+      "default": "note7-out",
+      "interrupt_exist_connections": false
     },
     {
       "type": "wireguard",
@@ -87,17 +94,6 @@
     },
     {
       "type": "wireguard",
-      "tag": "us42-out",
-      "server": "37.19.221.194",
-      "server_port": 51820,
-      "local_address": [
-        "10.2.0.2/32"
-        ],
-      "private_key": "KINvhkMHypIC694EKgzR1Y8iAvg7+EXUPKFyL7qTR28=",
-      "peer_public_key": "lCe5Yp9TfM61w72G8bmtZJ0/LtpFtk6PrughQEHQiXs="
-    },
-    {
-      "type": "wireguard",
       "tag": "nl43-out",
       "server": "169.150.196.71",
       "server_port": 51820,
@@ -109,21 +105,20 @@
     },
     {
       "type": "wireguard",
-      "tag": "us62-out",
-      "server": "87.249.134.133",
+      "tag": "us43-science",
+      "server": "37.19.221.195",
       "server_port": 51820,
       "local_address": [
         "10.2.0.2/32"
         ],
-      "private_key": "yNeKydjb2Ts+AE/RmRRl69NtsPAIXNMyBQj6W+fDhVQ=",
-      "peer_public_key": "3R9vndAPHcVhtB+nshj2FQMNE2+/6LYcWm9NhRC/wjc="
+      "private_key": "sAqXWCRHH8AJrXtzxjFP21UtxPBPBXhBCCcoAfpspmg=",
+      "peer_public_key": "spxrOrEyWRt2UIaiF8qcq6RTieQJv7BNK+8QVwFOMCI="
     },
     {
       "type": "socks",
-      "tag": "us17-out",
+      "tag": "note7-out",
       "server": "192.168.0.104",
-      "server_port": 1080,
-      "version": "5"
+      "server_port": 1080
     },
     {
       "type": "direct",
@@ -149,20 +144,8 @@
         "outbound": "block"
       },
       {
-        "inbound": "socks-in",
-        "outbound":"select"
-      },
-      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-            {
-                "rule_set": "geoip-cn",
-                "invert": true
-            },
-            {
-                "rule_set": "geosite-geolocation-!cn"
-            }
+        "process_name": [
+          "Telegram.exe"
         ],
         "outbound": "select"
       },
@@ -170,48 +153,40 @@
         "type": "logical",
         "mode": "and",
         "rules": [
-            {
-                "rule_set": "geoip-cn"
-            },
-            {
-                "rule_set": "geosite-cn"
-            }
+          {
+            "rule_set": "geoip-cn",
+            "invert": true
+          },
+          {
+            "rule_set": "geosite-geolocation-!cn"
+          }
         ],
-        "outbound": "direct"
+        "outbound": "select"
       },
       {
-        "rule_set": "geoip-cn",
-        "outbound": "direct"
-      },
-      {
-        "ip_is_private": true,
+        "rule_set": [
+          "geoip-cn"
+        ],
         "outbound": "direct"
       }
     ],
     "rule_set": [
       {
-          "tag": "geosite-geolocation-!cn",
-          "type": "remote",
-          "format": "binary",
-          "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
-          "download_detour": "direct"
-      },
-      {
           "tag": "geoip-cn",
           "type": "remote",
           "format": "binary",
-          "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs",
-          "download_detour": "direct"
+          "url": "https://github.com/1715173329/sing-geoip/raw/rule-set/geoip-cn.srs",
+          "download_detour": "select"
       },
       {
-          "tag": "geosite-cn",
-          "type": "remote",
-          "format": "binary",
-          "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs",
-          "download_detour": "direct"
+        "tag": "geosite-geolocation-!cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://github.com/1715173329/sing-geosite/raw/rule-set/geosite-geolocation-!cn.srs",
+        "download_detour": "select"
       }
     ],
-    "final": "select",
+    "final": "direct",
     "auto_detect_interface": true
   },
   "experimental": {
