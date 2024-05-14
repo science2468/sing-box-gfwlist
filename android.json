@@ -75,7 +75,7 @@
         "us43-science",
         "note7-out"
       ],
-      "default": "warp-out",
+      "default": "note7-out",
       "interrupt_exist_connections": false
     },
     {
