@@ -60,10 +60,10 @@
       "stack": "system",
       "sniff": true,
       "sniff_override_destination": false,
-      "domain_strategy": "prefer_ipv4"
+      "domain_strategy": "prefer_ipv4"，
       "platform": {
         "http_proxy": {
-          "enabled": false,
+          "enabled": true,
           "server": "127.0.0.1",
           "server_port": 8080
         }
