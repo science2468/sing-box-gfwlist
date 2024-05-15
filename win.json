@@ -82,7 +82,7 @@
       "server": "162.159.193.9",
       "server_port": 2408,
       "local_address": [
-        "172.16.0.2/32",
+        "172.16.0.2/32"
         ],
       "private_key": "ILTrP4VzwlJX+/hIBxBB8fObriCaFVYcEx8/AC4uj1E=",
       "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
