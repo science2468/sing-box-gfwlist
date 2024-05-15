@@ -1,8 +1,4 @@
 {
-  "log": {
-    "output": "box.log",
-    "timestamp": true
-  },
   "dns": {
     "servers": [
       {
@@ -57,7 +53,6 @@
       "type": "tun",
       "tag": "tun-in",
       "inet4_address": "172.19.0.1/30",
-      "inet6_address": "fdfe:dcba:9876::1/126",
       "mtu": 9000,
       "gso": false,
       "auto_route": true,
@@ -78,7 +73,7 @@
         "us43-science",
         "note7-out"
       ],
-      "default": "warp-out",
+      "default": "note7-out",
       "interrupt_exist_connections": false
     },
     {
@@ -88,7 +83,6 @@
       "server_port": 2408,
       "local_address": [
         "172.16.0.2/32",
-        "2606:4700:110:8efa:440:ee9e:abf9:ea7f/128"
         ],
       "private_key": "ILTrP4VzwlJX+/hIBxBB8fObriCaFVYcEx8/AC4uj1E=",
       "peer_public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
@@ -190,18 +184,5 @@
     ],
     "final": "direct",
     "auto_detect_interface": true
-  },
-  "experimental": {
-    "cache_file": {
-      "enabled": true,
-      "path": "cache.db"
-    },
-    "clash_api": {
-      "external_controller": "0.0.0.0:9090",
-      "external_ui": "C:/Users/DXB24/Downloads/sing-box-1.8.13-windows-amd64/metacubexd",
-      "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-      "external_ui_download_detour": "select"
-
-    }
   }
 }
