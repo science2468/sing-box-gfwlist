@@ -44,6 +44,17 @@
           }
         ],
         "server": "dns_proxy"
+      },
+      {
+        "domain_suffix": [
+          "nivod5.tv",
+          "nivod8.tv",
+          "nivod0.tv",
+          "nivodz.com",
+          "mudvod.tv",
+          "olddddd.com"
+        ],
+        "server": "dns_proxy"
       }
     ],
     "final": "dns_direct"
@@ -138,6 +149,17 @@
       {
         "protocol": "quic",
         "outbound": "block"
+      },
+      {
+        "domain_suffix": [
+          "nivod5.tv",
+          "nivod8.tv",
+          "nivod0.tv",
+          "nivodz.com",
+          "mudvod.tv",
+          "olddddd.com"
+        ],
+        "outbound": "select"
       },
       {
         "process_name": [
