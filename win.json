@@ -183,6 +183,11 @@
       }
     ],
     "final": "direct",
-    "auto_detect_interface": true
+    "auto_detect_interface": true,
+    "experimental": {
+      "clash_api": {
+      "external_controller": "0.0.0.0:6756"
+      }
+    }
   }
 }
