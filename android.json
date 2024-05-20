@@ -164,7 +164,8 @@
       },
       {
         "package_name": [
-          "com.mudvod.video.olcs"
+          "com.mudvod.video.olcs",
+          "org.telegram.messenger"
         ],
         "outbound": "select"
       },
