@@ -124,8 +124,9 @@
     {
       "type": "socks",
       "tag": "note7-out",
-      "server": "192.168.0.104",
-      "server_port": 1080
+      "server": "192.168.0.115",
+      "server_port": 1080,
+      "version": "5"
     },
     {
       "type": "direct",
