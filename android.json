@@ -166,9 +166,6 @@
         "package_name": [
           "com.mudvod.video.olcs"
         ],
-        "process_name": [
-          "Telegram.exe"
-        ],
         "outbound": "select"
       },
       {
