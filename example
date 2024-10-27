@@ -56,7 +56,7 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "inet4_address": "172.19.0.1/30",
+      "address": "172.19.0.1/30",
       "mtu": 1400,
       "gso": false,
       "auto_route": true,
@@ -156,11 +156,11 @@
   "experimental": {
     "cache_file": {
       "enabled": true,
-      "path": "cache.db"
+      "path": ""
     },
     "clash_api": {
       "external_controller": "0.0.0.0:9090",
-      "external_ui": "C:/Users/DXB24/Downloads/sing-box-1.8.13-windows-amd64/metacubexd",
+      "external_ui": "./metacubexd",
       "external_ui_download_url": "https://ghp.ci/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
       "external_ui_download_detour": "direct"
 
