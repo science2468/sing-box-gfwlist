@@ -17,11 +17,12 @@ jobs:
       - name: Set up sing-box
         run: |
           curl -fsSL https://sing-box.app/install.sh | sh
-          
+
           sing-box version
 
       - name: Compile rule-set to .srs
         run: |
+          mkdir -p rule-set
           for f in proxy.json; do
             name=$(basename "$f" .json)
             sing-box rule-set compile "$f" -o "rule-set/${name}.srs"
