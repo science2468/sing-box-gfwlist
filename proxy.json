@@ -1,7 +1,13 @@
 {
-    "version": 1,
+    "version": 3,
     "rules": [
         {
+            "domain": [
+                "copilot.microsoft.com",
+                "www.microsoft365.com",
+                "m365.cloud.microsoft",
+                "mss.office.com"
+            ],
             "domain_suffix": [
                 "google.com",
                 "googleapis.com",
@@ -16,69 +22,34 @@
                 "ggpht.com",
                 "sentry.io",
                 "gstatic.com",
-                "recaptcha.net"
-            ]
-        },
-        {
-            "domain_suffix": [
+                "recaptcha.net",
                 "fast.com",
                 "nflxvideo.net",
-                "netflix.com"
-            ]
-        },
-        {
-            "domain_suffix": [
+                "netflix.com",
                 "x.com",
                 "twitter.com",
                 "t.co",
                 "twimg.com",
-                "lancdn.com"
-            ]
-        },
-        {
-            "domain": [
-                "cdn-telegram.org"
-            ],
-            "domain_suffix": [
+                "cdn-telegram.org",
                 "telegram.org",
                 "t.me",
                 "telegram.me",
                 "telegram.dog",
-                "telegram.space"
-            ]
-        },
-        {
-            "domain_suffix": [
+                "telegram.space",
                 "twitch.tv",
                 "ttvnw.net",
-                "twitchcdn.net"
-            ]
-        },
-        {
-            "domain_suffix": [
+                "twitchcdn.net",
                 "reddit.com",
                 "redd.it",
                 "redditstatic.com",
                 "redditmedia.com",
                 "branch.io",
-                "redditspace.com"
-            ]
-        },
-        {
-            "domain_suffix": [
+                "redditspace.com",
                 "facebook.com",
                 "fb.com",
                 "fb.me",
                 "fbcdn.net",
                 "facebook.net"
-            ]
-        },
-        {
-            "domain": [
-                "copilot.microsoft.com",
-                "www.microsoft365.com",
-                "m365.cloud.microsoft",
-                "mss.office.com"
             ]
         }
     ]
