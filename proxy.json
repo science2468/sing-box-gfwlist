@@ -1,0 +1,85 @@
+{
+    "version": 1,
+    "rules": [
+        {
+            "domain_suffix": [
+                "google.com",
+                "googleapis.com",
+                "googleusercontent.com",
+                "1e100.net",
+                "youtube.com",
+                "youtu.be",
+                "ytimg.com",
+                "googlevideo.com",
+                "youtubekids.com",
+                "youtubegaming.com",
+                "ggpht.com",
+                "sentry.io",
+                "gstatic.com",
+                "recaptcha.net"
+            ]
+        },
+        {
+            "domain_suffix": [
+                "fast.com",
+                "nflxvideo.net",
+                "netflix.com"
+            ]
+        },
+        {
+            "domain_suffix": [
+                "x.com",
+                "twitter.com",
+                "t.co",
+                "twimg.com",
+                "lancdn.com"
+            ]
+        },
+        {
+            "domain": [
+                "cdn-telegram.org"
+            ],
+            "domain_suffix": [
+                "telegram.org",
+                "t.me",
+                "telegram.me",
+                "telegram.dog",
+                "telegram.space"
+            ]
+        },
+        {
+            "domain_suffix": [
+                "twitch.tv",
+                "ttvnw.net",
+                "twitchcdn.net"
+            ]
+        },
+        {
+            "domain_suffix": [
+                "reddit.com",
+                "redd.it",
+                "redditstatic.com",
+                "redditmedia.com",
+                "branch.io",
+                "redditspace.com"
+            ]
+        },
+        {
+            "domain_suffix": [
+                "facebook.com",
+                "fb.com",
+                "fb.me",
+                "fbcdn.net",
+                "facebook.net"
+            ]
+        },
+        {
+            "domain": [
+                "copilot.microsoft.com",
+                "www.microsoft365.com",
+                "m365.cloud.microsoft",
+                "mss.office.com"
+            ]
+        }
+    ]
+}

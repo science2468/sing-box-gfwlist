@@ -1,0 +1,38 @@
+name: Build sing-box rule-set (.srs)
+
+on:
+  push:
+    paths:
+      - "proxy.json"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up sing-box
+        run: |
+          VERSION=$(curl -s https://api.github.com/repos/SagerNet/sing-box/releases/latest | jq -r '.tag_name')
+          curl -L https://github.com/SagerNet/sing-box/releases/download/${VERSION}/sing-box-${VERSION}-linux-amd64.tar.gz -o sing-box.tar.gz
+          tar -xzf sing-box.tar.gz
+          sudo mv sing-box-*/sing-box /usr/local/bin/sing-box
+          sing-box version
+
+      - name: Compile rule-set to .srs
+        run: |
+          for f in proxy.json; do
+            name=$(basename "$f" .json)
+            sing-box rule-set compile "$f" -o "rule-set/${name}.srs"
+          done
+
+      - name: Commit compiled .srs files
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add rule-set/*.srs
+          git commit -m "chore: build sing-box rule-set (.srs)" || echo "No changes"
+          git push
