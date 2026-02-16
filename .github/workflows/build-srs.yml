@@ -16,10 +16,8 @@ jobs:
 
       - name: Set up sing-box
         run: |
-          VERSION=$(curl -s https://api.github.com/repos/SagerNet/sing-box/releases/latest | jq -r '.tag_name')
-          curl -L https://github.com/SagerNet/sing-box/releases/download/${VERSION}/sing-box-${VERSION}-linux-amd64.tar.gz -o sing-box.tar.gz
-          tar -xzf sing-box.tar.gz
-          sudo mv sing-box-*/sing-box /usr/local/bin/sing-box
+          curl -fsSL https://sing-box.app/install.sh | sh
+          
           sing-box version
 
       - name: Compile rule-set to .srs
