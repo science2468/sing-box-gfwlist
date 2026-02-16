@@ -3,8 +3,7 @@
     "rules": [
         {
             "domain": [
-                "www.microsoft365.com",
-                "m365.cloud.microsoft",
+                "titles.prod.mos.microsoft.com",
                 "mss.office.com"
             ],
             "domain_suffix": [
